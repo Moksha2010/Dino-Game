@@ -166,7 +166,7 @@ function reset(){
 
 function spawnObstacles() {
   if (frameCount % 60 === 0) {
-    var obstacle = createSprite(400, 165, 10, 40);
+    var obstacle = createSprite(width, height-35);
     obstacle.velocityX = -6;
 
     //generate random obstacles
@@ -189,7 +189,7 @@ function spawnObstacles() {
 
     //assign scale and lifetime to the obstacle           
     obstacle.scale = 0.5;
-    obstacle.lifetime = 300;
+    obstacle.lifetime = width/6;
 
     //add each obstacle to the group
     obstaclesGroup.add(obstacle);
@@ -199,14 +199,14 @@ function spawnObstacles() {
 function spawnClouds() {
   //write code here to spawn the clouds
   if (frameCount % 60 === 0) {
-    cloud = createSprite(600, 100, 40, 10);
-    cloud.y = Math.round(random(10, 60));
+    cloud = createSprite(width, height/2);
+    cloud.y = Math.round(random(height/2, (height/2 + height/4)));
     cloud.addImage(cloudImage);
     cloud.scale = 0.5;
     cloud.velocityX = -3;
 
     //assign lifetime to the variable
-    cloud.lifetime = 200;
+    cloud.lifetime = width/3;
 
     //adjust the depth
     cloud.depth = trex.depth;
